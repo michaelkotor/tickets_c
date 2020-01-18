@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <malloc.h>
+#include <stdlib.h>
+int fib(int a)
+{ 
+	if (a == 1 || a == 2)
+	{
+		return 1;
+	} 
+	else
+	{	
+		return fib(a - 1) + fib(a - 2);
+	} 
+}
+int main()
+{
+	int a;
+	setlocale(LC_ALL, "Russian");
+	scanf_s("%d", &a);
+	printf("%d",fib(a));
+	return 0;
+}
