@@ -1,0 +1,72 @@
+void task_3_2()//2. В функции поменять 1 и 2 слово местами
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int j = 0, n = 0, j1, j2, strlen, k;
+	char* str = NULL;
+	setlocale(LC_ALL, "Russian");
+	str = (char*)malloc(50 * sizeof(char));
+	printf("Строка\n");
+	rewind(stdin);
+	gets_s(str, 50);
+	while (*(str + j) != '\0')
+	{
+		j++;
+	}
+	strlen = j - 1;
+	if (!(str = (char*)realloc(str, (j + 1) * sizeof(char))))
+	{
+		puts("нет свободной памяти"); return;
+	}
+	j = 0;
+	if (*(str + j) != ' ')
+	{
+		k = 1;
+		j1 = j;
+		while (*(str + j) != ' ')
+		{
+			j++;
+		}
+		j2 = j;
+		j2 = j2 - j1;
+		revers2(str, j1, j2);
+	}
+	else k = 0;
+	j++;
+	while (*(str + j) != '\0')
+	{
+		if (*(str + j) != ' ' && *(str + j - 1) == ' ')
+		{
+			k++;
+			if (k % 2 == 1)
+			{
+				j1 = j;
+				while (*(str + j) != ' ' && *(str + j) != '\0')
+				{
+					j++;
+				}
+				j2 = j;
+				j2 = j2 - j1;
+				revers2(str, j1, j2);
+			}
+		}
+		j++;
+	}
+	puts(str);
+	free(str);
+}
+void revers2(char* ss, int j, int nn)
+{
+	static int i;
+	char c;
+	c = *(ss + j + i);
+	*(ss + j + i) = *(ss + j + nn - 1 - i);       // замена символов до тех пор пока
+	*(ss + j + nn - 1 - i) = c;
+	i++;
+	if (i < (nn / 2)) revers2(ss, j, nn); // не достигнута середина строки
+	else
+	{
+		i = 0;
+		return;
+	}
+}
