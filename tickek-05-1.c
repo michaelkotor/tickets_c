@@ -3,13 +3,14 @@
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
-#define N 4       //ќбъ¤вление количества строк массива
-#define M 4       //ќбъ¤вление количества столбцов массива
+#define N 4       //ВќГЎГєВ¤ГўГ«ГҐГ­ГЁГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  Г±ГІГ°Г®ГЄ Г¬Г Г±Г±ГЁГўГ 
+#define M 4       //ВќГЎГєВ¤ГўГ«ГҐГ­ГЁГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  Г±ГІГ®Г«ГЎГ¶Г®Гў Г¬Г Г±Г±ГЁГўГ 
 #define I 3
 int main(){
 	int m[N][M] = { 1,3,4,0,5,7,8,1,9,8,7,4,3,2,1,0 };
 	int i, j, imin, imax, jmin, jmax;
 	int min, max, k;
+	bool iss = 0;
 
 	for (i = 0; i < N; i++)
 		{
@@ -32,9 +33,11 @@ int main(){
 		if (/*jmax == jmin && imax == imin*/jmax = imax && min == max)
 			{
 			printf_s("Sedl Tochka: %d\n", m[imin][jmin]);
+			iss=1;
 			break;
 			}
 		}
+	if (iss=0) printf_s ("Net Sedl Tochek");
 
 	system("pause");
 	return(0);
