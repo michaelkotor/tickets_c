@@ -1,4 +1,4 @@
-#include <stdio.h> 
+#include <stdio.h>  ///Перевод из 10-й в 16-ю СС
 #include <stdlib.h> 
 
 void conv(int n, int b, char* m)
